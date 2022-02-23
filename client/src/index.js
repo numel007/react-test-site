@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import RecipesList from './RecipesList/RecipesList';
+import RecipeDetails from './RecipeDetails/RecipeDetails';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<Router>
+		<Routes>
+			<Route path="/" element={<App />}>
+				<Route path="/" element={<RecipesList />} />
+				<Route path="/details/:id" element={<RecipeDetails />} />
+			</Route>
+		</Routes>
+	</Router>,
+	document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
