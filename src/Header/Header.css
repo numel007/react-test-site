@@ -1,0 +1,10 @@
+.Header {
+	box-sizing: border-box;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(173, 20, 0);
+	color: #fff;
+}
