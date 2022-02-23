@@ -1,0 +1,27 @@
+[
+	{
+		"name": "Recipe 1",
+		"servings": "Serves 1",
+		"instructions": ["step1", "step2", "step3", "step4"]
+	},
+	{
+		"name": "Recipe 2",
+		"servings": "Serves 2",
+		"instructions": ["step1", "step2", "step3", "step4"]
+	},
+	{
+		"name": "Recipe 3",
+		"servings": "Serves 3",
+		"instructions": ["step1", "step2", "step3", "step4"]
+	},
+	{
+		"name": "Recipe 4",
+		"servings": "Serves 4",
+		"instructions": ["step1", "step2", "step3", "step4"]
+	},
+	{
+		"name": "Recipe 5",
+		"servings": "Serves 5",
+		"instructions": ["step1", "step2", "step3", "step4"]
+	}
+]
