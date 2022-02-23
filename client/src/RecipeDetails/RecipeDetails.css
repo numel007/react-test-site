@@ -1,0 +1,27 @@
+.RecipeDetails {
+	width: 30vw;
+	margin: auto;
+}
+
+table.ingredients {
+	margin: auto;
+	border: 1px solid;
+}
+
+tr.table-header {
+	text-align: center;
+}
+
+tr.table-ingredient {
+	text-align: left;
+}
+
+th {
+	border: 1px solid;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.instruction {
+	text-align: left;
+}

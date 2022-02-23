@@ -1,0 +1,9 @@
+.Footer {
+	width: 100vw;
+	position: absolute;
+	bottom: 0px;
+}
+
+div > p {
+	text-align: center;
+}

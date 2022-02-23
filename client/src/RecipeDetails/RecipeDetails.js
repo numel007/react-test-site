@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import './RecipeDetails.css';
 
 function RecipeDetails() {
 	const params = useParams();
@@ -17,19 +18,26 @@ function RecipeDetails() {
 	return (
 		<div className="RecipeDetails">
 			<h1>{recipe.name}</h1>
-			<p>Yield: {recipe.servings}</p>
-
-			<ul className="ingredients">
-				INGREDIENTS
+			<em>Yield: {recipe.servings}</em>
+			<h3>INGREDIENTS</h3>
+			<table className="ingredients">
+				<tr className="table-header">
+					<th>Name</th>
+					<th>Quantity</th>
+				</tr>
 				{recipe['ingredients']?.map((ingredient) => {
-					return <li>{ingredient}</li>;
+					return (
+						<tr className="table-ingredient">
+							<th>{ingredient[0]}</th>
+							<th>{ingredient[1]}</th>
+						</tr>
+					);
 				})}
-			</ul>
-
+			</table>
+			<h3>METHOD</h3>
 			<ol className="method">
-				METHOD
 				{recipe['instructions']?.map((instruction) => {
-					return <li>{instruction}</li>;
+					return <li className="instruction">{instruction}</li>;
 				})}
 			</ol>
 		</div>
