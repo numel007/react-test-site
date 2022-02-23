@@ -16,7 +16,7 @@ function RecipesList() {
 	return (
 		<div className="RecipesList">
 			{recipes.map(({ id, name, servings }) => (
-				<RecipeCard key={id} name={name} servings={servings} />
+				<RecipeCard id={id} name={name} servings={servings} />
 			))}
 		</div>
 	);
