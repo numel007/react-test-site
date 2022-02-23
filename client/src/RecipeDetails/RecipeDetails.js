@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
-function RecipeDetails(props) {
+function RecipeDetails() {
 	const params = useParams();
 	const { id } = params;
 
@@ -17,8 +17,17 @@ function RecipeDetails(props) {
 	return (
 		<div className="RecipeDetails">
 			<h1>{recipe.name}</h1>
-			<p>{recipe.servings}</p>
-			<ol>
+			<p>Yield: {recipe.servings}</p>
+
+			<ul className="ingredients">
+				INGREDIENTS
+				{recipe['ingredients']?.map((ingredient) => {
+					return <li>{ingredient}</li>;
+				})}
+			</ul>
+
+			<ol className="method">
+				METHOD
 				{recipe['instructions']?.map((instruction) => {
 					return <li>{instruction}</li>;
 				})}

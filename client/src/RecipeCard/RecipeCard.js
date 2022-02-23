@@ -9,7 +9,7 @@ function RecipeCard(props) {
 			<Link to={`/details/${id}`}>
 				<h1>{name}</h1>
 			</Link>
-			<h2>{servings}</h2>
+			<h2>Yield: {servings}</h2>
 		</div>
 	);
 }
