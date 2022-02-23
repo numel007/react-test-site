@@ -6,7 +6,7 @@ function RecipeDetails() {
 	const params = useParams();
 	const { id } = params;
 
-	const [recipe, setRecipe] = useState({});
+	const [recipe, setRecipe] = useState(null);
 	useEffect(() => {
 		fetch(`http://localhost:3001/recipes/${id}`)
 			.then((res) => res.json())
@@ -15,6 +15,9 @@ function RecipeDetails() {
 			});
 	}, []);
 
+	if (recipe === null) {
+		return null;
+	}
 	return (
 		<div className="RecipeDetails">
 			<h1>{recipe.name}</h1>
@@ -26,7 +29,7 @@ function RecipeDetails() {
 						<th>Name</th>
 						<th>Quantity</th>
 					</tr>
-					{recipe['ingredients']?.map((ingredient, i) => {
+					{recipe['ingredients'].map((ingredient, i) => {
 						return (
 							<tr key={`ingredient-${i}`} className="table-ingredient">
 								<th>{ingredient[0]}</th>
@@ -38,7 +41,7 @@ function RecipeDetails() {
 			</table>
 			<h3>METHOD</h3>
 			<ol className="method">
-				{recipe['instructions']?.map((instruction, i) => {
+				{recipe['instructions'].map((instruction, i) => {
 					return (
 						<li key={`method-${i}`} className="instruction">
 							{instruction}

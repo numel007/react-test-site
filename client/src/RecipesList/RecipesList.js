@@ -4,7 +4,7 @@ import './RecipesList.css';
 import RecipeCard from '../RecipeCard/RecipeCard';
 
 function RecipesList() {
-	const [recipes, setRecipes] = useState([]);
+	const [recipes, setRecipes] = useState(null);
 	useEffect(() => {
 		fetch('http://localhost:3001/recipes/all')
 			.then((res) => res.json())
@@ -13,13 +13,13 @@ function RecipesList() {
 			});
 	}, []);
 
-	return (
-		<div className="RecipesList">
-			{recipes.map(({ id, name, servings }) => (
-				<RecipeCard id={id} name={name} servings={servings} />
-			))}
-		</div>
-	);
+	if (recipes === null) {
+		return null;
+	}
+	let recipesArr = recipes.map(({ id, name, servings }) => (
+		<RecipeCard id={id} name={name} servings={servings} />
+	));
+	return <div className="RecipesList">{recipesArr}</div>;
 }
 
 export default RecipesList;
