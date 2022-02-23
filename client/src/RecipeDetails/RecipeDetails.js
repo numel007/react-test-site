@@ -21,23 +21,29 @@ function RecipeDetails() {
 			<em>Yield: {recipe.servings}</em>
 			<h3>INGREDIENTS</h3>
 			<table className="ingredients">
-				<tr className="table-header">
-					<th>Name</th>
-					<th>Quantity</th>
-				</tr>
-				{recipe['ingredients']?.map((ingredient) => {
-					return (
-						<tr className="table-ingredient">
-							<th>{ingredient[0]}</th>
-							<th>{ingredient[1]}</th>
-						</tr>
-					);
-				})}
+				<tbody>
+					<tr className="table-header">
+						<th>Name</th>
+						<th>Quantity</th>
+					</tr>
+					{recipe['ingredients']?.map((ingredient, i) => {
+						return (
+							<tr key={`ingredient-${i}`} className="table-ingredient">
+								<th>{ingredient[0]}</th>
+								<th>{ingredient[1]}</th>
+							</tr>
+						);
+					})}
+				</tbody>
 			</table>
 			<h3>METHOD</h3>
 			<ol className="method">
-				{recipe['instructions']?.map((instruction) => {
-					return <li className="instruction">{instruction}</li>;
+				{recipe['instructions']?.map((instruction, i) => {
+					return (
+						<li key={`method-${i}`} className="instruction">
+							{instruction}
+						</li>
+					);
 				})}
 			</ol>
 		</div>
