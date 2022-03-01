@@ -8,7 +8,7 @@ function RecipeDetails() {
 
 	const [recipe, setRecipe] = useState(null);
 	useEffect(() => {
-		fetch(`http://localhost:3001/recipes/${id}`)
+		fetch(`https://recipes-api.dev.carblife.icu/recipes/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setRecipe(data);
