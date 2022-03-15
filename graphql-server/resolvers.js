@@ -7,15 +7,21 @@ export const resolvers = {
 			return await Recipe.find();
 		},
 		recipe: async (_, args) => {
-			const { title } = args;
-			return await Recipe.findOne({ title: title });
+			const { name } = args;
+			return await Recipe.findOne({ name: name });
 		},
 	},
 
 	// DB modification requests
 	Mutation: {
-		createRecipe: (_, { title }) => {
-			const recipe = new Recipe({ title });
+		createRecipe: (_, args) => {
+			const { name, servings, ingredients, instructions } = args;
+			const recipe = new Recipe({
+				name: name,
+				servings: servings,
+				ingredients: ingredients,
+				instructions: instructions,
+			});
 			return recipe.save();
 		},
 	},

@@ -3,13 +3,21 @@ import { gql } from 'apollo-server-express';
 export const typeDefs = gql`
 	type Query {
 		allRecipes: [Recipe!]
-		recipe(title: String!): Recipe
+		recipe(name: String!): Recipe
 	}
 	type Recipe {
 		id: ID!
-		title: String!
+		name: String!
+		servings: String!
+		ingredients: [[String!]]
+		instructions: [String!]
 	}
 	type Mutation {
-		createRecipe(title: String!): Recipe!
+		createRecipe(
+			name: String!
+			servings: String!
+			ingredients: [[String!]]
+			instructions: [String!]
+		): Recipe!
 	}
 `;
