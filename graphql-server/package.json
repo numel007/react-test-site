@@ -1,16 +1,24 @@
 {
-  "name": "graphql-server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Jackie",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.17.3",
-    "express-graphql": "^0.12.0",
-    "graphql": "^15.8.0"
-  }
+	"name": "graphql-server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon --exec babel-node server.js"
+	},
+	"author": "Jackie",
+	"license": "MIT",
+	"dependencies": {
+		"apollo-server-express": "^3.6.4",
+		"babel-node": "^0.0.1-security",
+		"express": "^4.17.3",
+		"express-graphql": "^0.12.0",
+		"graphql": "^15.8.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.17.7",
+		"@babel/node": "^7.16.8",
+		"@babel/preset-env": "^7.16.11"
+	}
 }
