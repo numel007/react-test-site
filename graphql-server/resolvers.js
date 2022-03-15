@@ -3,7 +3,13 @@ import { Recipe } from './models/Recipe';
 export const resolvers = {
 	// GET requests
 	Query: {
-		hello: () => 'hello response here',
+		allRecipes: async () => {
+			return await Recipe.find();
+		},
+		recipe: async (_, args) => {
+			const { title } = args;
+			return await Recipe.findOne({ title: title });
+		},
 	},
 
 	// DB modification requests
