@@ -1,9 +1,15 @@
 import { typeDefs } from './typeDefs';
 import { resolvers } from './resolvers';
+import { NoIntrospection } from 'graphql-disable-introspection';
+const cors = require('cors');
 import express from 'express';
 import mongoose from 'mongoose';
 const { graphqlHTTP } = require('express-graphql');
 require('dotenv').config();
+
+const corsOptions = {
+	origin: 'http://localhost:3000',
+};
 
 const startServer = async () => {
 	const app = express();
@@ -15,8 +21,9 @@ const startServer = async () => {
 		useUnifiedTopology: true,
 	});
 
+	app.use(cors(corsOptions));
 	app.use(
-		'/graphql',
+		'/graphqlapi',
 		graphqlHTTP({
 			schema: typeDefs,
 			rootValue: resolvers,
@@ -29,5 +36,5 @@ const startServer = async () => {
 	});
 };
 
-// Start Apollo server
+// Start server
 startServer();
