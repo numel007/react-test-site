@@ -1,18 +1,13 @@
-import { ApolloServer } from 'apollo-server-express';
 import { typeDefs } from './typeDefs';
 import { resolvers } from './resolvers';
 import express from 'express';
 import mongoose from 'mongoose';
+const { graphqlHTTP } = require('express-graphql');
 require('dotenv').config();
 
-const startApolloServer = async () => {
+const startServer = async () => {
 	const app = express();
 	const PORT = 4000;
-	const server = new ApolloServer({ typeDefs, resolvers });
-
-	// Must await Apollo server start before applying middleware
-	await server.start();
-	server.applyMiddleware({ app });
 
 	// Connect to mongodb
 	await mongoose.connect(process.env.MONGODB_URI, {
@@ -20,10 +15,19 @@ const startApolloServer = async () => {
 		useUnifiedTopology: true,
 	});
 
+	app.use(
+		'/graphql',
+		graphqlHTTP({
+			schema: typeDefs,
+			rootValue: resolvers,
+			graphiql: true,
+		})
+	);
+
 	app.listen({ port: PORT }, () => {
 		console.log(`Server running on port ${PORT}`);
 	});
 };
 
 // Start Apollo server
-startApolloServer(typeDefs, resolvers);
+startServer();
