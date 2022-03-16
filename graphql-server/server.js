@@ -3,6 +3,7 @@ import { typeDefs } from './typeDefs';
 import { resolvers } from './resolvers';
 import express from 'express';
 import mongoose from 'mongoose';
+require('dotenv').config();
 
 const startApolloServer = async () => {
 	const app = express();
@@ -14,7 +15,10 @@ const startApolloServer = async () => {
 	server.applyMiddleware({ app });
 
 	// Connect to mongodb
-	await mongoose.connect('mongodb://localhost:27017/recipeDB', { useNewUrlParser: true });
+	await mongoose.connect(process.env.MONGODB_URI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	});
 
 	app.listen({ port: PORT }, () => {
 		console.log(`Server running on port ${PORT}`);
