@@ -2,26 +2,29 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './RecipesList.css';
 import RecipeCard from '../RecipeCard/RecipeCard';
+import { useQuery, gql } from '@apollo/client';
+
+const ALL_RECIPES_QUERY = gql`
+	{
+		getAllRecipes {
+			name
+		}
+	}
+`;
 
 function RecipesList() {
-	const [recipes, setRecipes] = useState(null);
-	useEffect(() => {
-		async function loadData() {
-			try {
-				const res = await fetch('https://recipes-api.dev.carblife.icu/recipes/all');
-				const data = await res.json();
-				setRecipes(data);
-			} catch (err) {
-				console.log(err);
-			}
-		}
-		loadData();
-	}, []);
+	// REBUILD
+	const { data, loading, error } = useQuery(ALL_RECIPES_QUERY);
 
-	if (recipes === null) {
-		return null;
+	if (loading) return 'Loading...';
+	if (error) {
+		console.log(error);
+		return <pre>{error.message}</pre>;
 	}
-	let recipesArr = recipes.map(({ id, name, servings }, i) => (
+
+	console.log(data);
+
+	let recipesArr = data.map(({ id, name, servings }, i) => (
 		<RecipeCard key={i} id={id} name={name} servings={servings} />
 	));
 	return <div className="RecipesList">{recipesArr}</div>;
