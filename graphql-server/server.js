@@ -1,12 +1,11 @@
 import { typeDefs } from './typeDefs';
 import { resolvers } from './resolvers';
-import { NoIntrospection } from 'graphql-disable-introspection';
-const cors = require('cors');
 import express from 'express';
 import mongoose from 'mongoose';
 const { graphqlHTTP } = require('express-graphql');
 require('dotenv').config();
 
+const cors = require('cors');
 const corsOptions = {
 	origin: 'http://localhost:3000',
 };
