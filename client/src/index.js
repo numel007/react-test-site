@@ -19,7 +19,7 @@ ReactDOM.render(
 			<Routes>
 				<Route path="/" element={<App />}>
 					<Route path="/" element={<RecipesList />} />
-					<Route path="/details/:id" element={<RecipeDetails />} />
+					<Route path="/details/:name" element={<RecipeDetails />} />
 				</Route>
 			</Routes>
 		</Router>

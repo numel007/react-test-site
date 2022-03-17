@@ -1,23 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import { useQuery, gql } from '@apollo/client';
 import { useParams } from 'react-router';
 import './RecipeDetails.css';
 
 function RecipeDetails() {
 	const params = useParams();
-	const { id } = params;
+	const { name } = params;
 
-	const [recipe, setRecipe] = useState(null);
-	useEffect(() => {
-		fetch(`https://recipes-api.dev.carblife.icu/recipes/${id}`)
-			.then((res) => res.json())
-			.then((data) => {
-				setRecipe(data);
-			});
-	}, []);
+	const RECIPE_QUERY = gql`
+		query GetRecipe($name: String!) {
+			recipe(name: $name) {
+				name
+				servings
+				ingredients
+				instructions
+			}
+		}
+	`;
 
-	if (recipe === null) {
-		return null;
+	const { data, loading, error } = useQuery(RECIPE_QUERY, {
+		variables: {
+			name: name,
+		},
+	});
+
+	if (loading) return 'Loading...';
+	if (error) {
+		console.log(error);
+		return <pre>{error.message}</pre>;
 	}
+
+	const recipe = data.recipe;
+
 	return (
 		<div className="RecipeDetails">
 			<h1>{recipe.name}</h1>
