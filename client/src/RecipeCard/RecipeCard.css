@@ -1,6 +1,13 @@
 .RecipeCard {
-	width: 100%;
+	width: 32%;
 	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	margin: 2px;
+}
+
+a:link {
+	text-decoration: none;
 }
 
 /* .RecipeCard > img {

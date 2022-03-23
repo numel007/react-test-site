@@ -9,7 +9,7 @@ import RecipesList from './RecipesList/RecipesList';
 import RecipeDetails from './RecipeDetails/RecipeDetails';
 
 const client = new ApolloClient({
-	uri: 'http://localhost:4000/graphqlapi',
+	uri: 'https://recipes-graphql-api.dev.carblife.icu/graphqlapi',
 	cache: new InMemoryCache(),
 });
 
