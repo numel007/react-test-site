@@ -1,7 +1,6 @@
 .Footer {
-	width: 100vw;
-	position: relative;
-	bottom: 0px;
+	position: absolute;
+	width: 100%;
 }
 
 div > p {

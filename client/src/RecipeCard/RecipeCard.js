@@ -5,12 +5,12 @@ import './RecipeCard.css';
 function RecipeCard(props) {
 	const { name, servings } = props;
 	return (
-		<div className="RecipeCard">
-			<Link to={`/details/${name}`}>
+		<Link to={`/details/${name}`} className="RecipeCardLink">
+			<div className="RecipeCard">
 				<h1>{name}</h1>
-			</Link>
-			<h4>Yield: {servings}</h4>
-		</div>
+				<h4>Yield: {servings}</h4>
+			</div>
+		</Link>
 	);
 }
 
