@@ -6,11 +6,9 @@ function Header() {
 	return (
 		<div className="Header">
 			<Link to={`/`}>
-				<h1>React Recipe Test Site</h1>
+				<h1>Jackie's Recipe Database</h1>
 			</Link>
-			<p>
-				<a href="https://github.com/numel007/recipes">Click for recipe repo</a>
-			</p>
+			<a href="https://github.com/numel007/recipes">Readme version available here</a>
 		</div>
 	);
 }

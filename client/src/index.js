@@ -23,7 +23,6 @@ ReactDOM.render(
 				</Route>
 			</Routes>
 		</Router>
-		,
 	</ApolloProvider>,
 	document.getElementById('root')
 );
