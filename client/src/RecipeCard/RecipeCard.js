@@ -5,7 +5,7 @@ import './RecipeCard.css';
 function RecipeCard(props) {
 	const { name, servings } = props;
 	return (
-		<Link to={`/details/${name}`} className="RecipeCardLink">
+		<Link to={`/details/${encodeURIComponent(name)}`} className="RecipeCardLink">
 			<div className="RecipeCard">
 				<h1>{name}</h1>
 				<h4>Yield: {servings}</h4>
