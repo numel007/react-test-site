@@ -1,11 +1,13 @@
 .RecipeDetails {
-	width: 30vw;
+	width: 70vw;
 	margin: auto;
+	color: white;
 }
 
 table.ingredients {
 	margin: auto;
 	border: 1px solid;
+	/* max-width: 75%; */
 }
 
 tr.table-header {
@@ -20,6 +22,12 @@ th {
 	border: 1px solid;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+.method {
+	/* max-width: 50%; */
+	margin-left: 25%;
+	margin-right: 25%;
 }
 
 .instruction {

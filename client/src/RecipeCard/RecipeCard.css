@@ -1,13 +1,22 @@
 a.RecipeCardLink {
 	text-align: center;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 2px;
 	margin: 2px;
 	width: 32%;
 }
 
 a.RecipeCardLink:link {
 	text-decoration: none;
+	color: rgb(209, 209, 209);
+}
+
+a.RecipeCardLink:visited {
+	color: rgb(209, 209, 209);
+}
+
+a.RecipeCardLink:hover {
+	color: #ffcc66;
 }
 
 /* .RecipeCard > img {
