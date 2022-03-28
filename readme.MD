@@ -1,1 +1,1 @@
-https://recipes-frontend.dev.carblife.icu/#/
+[Live site here](https://recipes.carblife.icu/#/)
