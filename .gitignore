@@ -3,3 +3,4 @@ node_modules
 /server/captain-definition
 /server/package-lock.json
 /graphql-server/node_modules
+/.idea
