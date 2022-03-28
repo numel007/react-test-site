@@ -2,8 +2,10 @@ a.RecipeCardLink {
 	text-align: center;
 	border-style: solid;
 	border-width: 2px;
-	margin: 2px;
-	width: 32%;
+	padding: 0 5px 0 5px;
+	margin: 10px;
+	flex: 0 1 calc(32% - 30px);
+	width: fit-content;
 }
 
 a.RecipeCardLink:link {
