@@ -7,6 +7,9 @@ export const resolvers = {
 	},
 	searchRecipes: async (args) => {
 		const { searchTerm } = args;
+		if (searchTerm == '') {
+			return [];
+		}
 		return await Recipe.find({ name: { $regex: searchTerm, $options: 'i' } });
 	},
 	recipe: async (args) => {
