@@ -11,6 +11,7 @@ type Recipe {
 
 type Query {
   getAllRecipes: [Recipe!]
+  searchRecipes(searchTerm: String!): [Recipe]
   recipe(name: String!): Recipe
 }
 

@@ -5,6 +5,10 @@ export const resolvers = {
 	getAllRecipes: async () => {
 		return await Recipe.find();
 	},
+	searchRecipes: async (args) => {
+		const { searchTerm } = args;
+		return await Recipe.find({ name: { $regex: searchTerm, $options: 'i' } });
+	},
 	recipe: async (args) => {
 		const { name } = args;
 		return await Recipe.findOne({ name: name });
