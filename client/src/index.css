@@ -15,5 +15,5 @@ a.RecipeCardLink:visited {
 }
 
 * {
-	background-color: #36393f;
+	z-index: 0;
 }
